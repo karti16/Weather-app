@@ -61,6 +61,7 @@
   "homepage": "https://github.com/karti16/Weather-app#readme",
   "dependencies": {
     "react-datepicker": "^4.8.0",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "redux-logger": "^3.0.6"
   }
 }
