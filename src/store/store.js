@@ -10,4 +10,3 @@ const useStore = create(
 );
 
 export { useStore };
-// redux
