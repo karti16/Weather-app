@@ -8,7 +8,7 @@ import {
 const initialState = {
   loading: false,
   city: 'avadi',
-  cityData: {},
+  cityData: [],
   error: '',
 };
 
