@@ -1,35 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchWeather } from '../../redux';
 
 const Main = () => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const KELVIN = 273.15;
+  const loading = useSelector((state) => state.weather.loading);
+  const city = useSelector((state) => state.weather.city);
+  const cityData = useSelector((state) => state.weather.cityData);
+  const error = useSelector((state) => state.weather.error);
 
-  const place = 'chennai';
-  const apiKey = '73126ac7d135d02ad749e01c19c9dc4e';
-  const link = `http://api.openweathermap.org/data/2.5/weather?q=${place}&APPID=${apiKey}`;
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(link)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
-          );
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setError(null);
-        setWeatherData(data);
-      })
-      .catch((err) => {
-        setWeatherData(null);
-        setError(err.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    dispatch(fetchWeather());
   }, []);
 
   return (
@@ -38,10 +21,10 @@ const Main = () => {
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
-      {weatherData && (
+      {cityData && (
         <>
-          <div>{weatherData.name}</div>
-          <div>{weatherData.main.temp - 273.15}</div>
+          <div>{cityData.main.temp - KELVIN}</div>
+          <div>{cityData.name}</div>
         </>
       )}
     </>
