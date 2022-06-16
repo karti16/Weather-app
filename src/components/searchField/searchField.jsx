@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import styles from './searchField.module.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchWeather, getCityName } from '../../redux/weather/weatherActions';
+import { FiSearch } from 'react-icons/fi';
+import { updateRecentSearch } from '../../redux/weather/weatherActions';
 
 const SearchField = () => {
   const [city, setCity] = useState('');
   const dispatch = useDispatch();
+  const cityData = useSelector((state) => state.weather.cityData);
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch(getCityName(city));
@@ -13,9 +16,9 @@ const SearchField = () => {
   };
 
   return (
-    <div className={styles.nav}>
+    <div className={styles.search}>
       <input
-        className=""
+        className={styles.searchArea}
         type="text"
         placeholder="Search city"
         value={city}
@@ -23,16 +26,17 @@ const SearchField = () => {
           setCity(e.target.value);
         }}
       ></input>
-      <button
-        type="submit"
+      <a
+        href="#"
         onClick={(e) => {
           if (city.trim() != '') {
+            e.preventDefault();
             handleSearch(e);
           }
         }}
       >
-        Search
-      </button>
+        <FiSearch />
+      </a>
     </div>
   );
 };

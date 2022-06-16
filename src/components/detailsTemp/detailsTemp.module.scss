@@ -1,0 +1,26 @@
+.detailsContainer {
+  width: 30%;
+  height: 100vh;
+  backdrop-filter: blur(30px);
+
+  color: rgba(240, 248, 255, 0.344);
+
+  & ul {
+    border-bottom: 1px solid rgba(240, 248, 255, 0.344);
+    padding-bottom: 15px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  & p {
+    color: white;
+  }
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+}

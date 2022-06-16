@@ -1,18 +1,19 @@
 // main
 import { Provider } from 'react-redux';
-import Main from './components/main/main';
+import MainTemp from './components/mainTemp/mainTemp';
 import SearchField from './components/searchField/searchField';
 import store from './redux/store';
 import styles from './app.module.scss';
+import DetailsTemp from './components/detailsTemp/detailsTemp';
 
 const App = () => {
   return (
-    <div className={styles.app}>
-      <Provider store={store}>
-        <SearchField />
-        <Main />
-      </Provider>
-    </div>
+    <Provider store={store}>
+      <div className={styles.app}>
+        <MainTemp />
+        <DetailsTemp />
+      </div>
+    </Provider>
   );
 };
 

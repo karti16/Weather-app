@@ -3,6 +3,7 @@ import {
   WEATHER_FETCH_SUCCESS,
   WEATHER_FETCH_FAILURE,
   GET_CITY_NAME,
+  UPDATE_RECENT_SEARCH,
 } from './weatherTypes';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   city: 'avadi',
   cityData: [],
   error: '',
+  recentSearch: ['avadi', 'london', 'chennai', 'new york', 'tokyo'],
 };
 
 export const weatherReducer = (state = initialState, action) => {
@@ -20,6 +22,14 @@ export const weatherReducer = (state = initialState, action) => {
         city: action.payload,
       };
       break;
+
+    case UPDATE_RECENT_SEARCH:
+      return {
+        ...state,
+        recentSearch: [action.payload, ...state.recentSearch.slice(0, -1)],
+      };
+      break;
+
     case WEATHER_FETCH_REQUEST:
       return {
         ...state,

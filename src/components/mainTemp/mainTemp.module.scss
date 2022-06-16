@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.container {
+  width: 70%;
+}
+.wrap {
+  position: fixed;
+  bottom: 100px;
+  left: 100px;
+}
+.tempBox {
+  font-family: 'Ubuntu', sans-serif;
+  color: aliceblue;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6), 0px 0px 1px rgba(0, 0, 0, 0.7);
+  display: flex;
+  gap: 20px;
+  height: 100px;
+
+  //
+  .temp {
+    font-size: 11vw;
+    align-self: center;
+  }
+  //
+}
+
+.tempDetails {
+  .cityName {
+    display: inline-block;
+    font-size: 4vw;
+    font-weight: 400;
+    height: 75px;
+
+    display: table-cell;
+    vertical-align: bottom;
+  }
+
+  .date {
+    font-size: calc(5px + 1vw);
+  }
+}
+
+.weatherIcon {
+  display: flex;
+  align-items: center;
+
+  > img {
+  }
+
+  > p {
+    font-size: calc(5px + 1vw);
+    text-transform: capitalize;
+    color: aliceblue;
+  }
+}
