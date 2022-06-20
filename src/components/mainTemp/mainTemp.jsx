@@ -29,10 +29,12 @@ const MainTemp = () => {
     <div className={styles.container}>
       <div className={styles.wrap}>
         <div className={styles.weatherIcon}>
-          <img
-            src={`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
-            alt=""
-          />
+          {weatherIcon && (
+            <img
+              src={`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
+              alt=""
+            />
+          )}
           <p>{weatherDescription}</p>
         </div>
         <div className={styles.tempBox}>

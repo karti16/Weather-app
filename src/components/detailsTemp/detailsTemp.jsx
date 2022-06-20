@@ -20,7 +20,7 @@ const DetailsTemp = () => {
             return (
               <li
                 key={item}
-                className={styles.details}
+                className={`${styles.details} ${styles.recentCity}`}
                 onClick={(e) => {
                   console.log(e);
                   e.preventDefault();

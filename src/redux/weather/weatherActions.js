@@ -48,7 +48,7 @@ export const fetchWeather = () => {
     const city = store.getState().weather.city;
     const recentList = store.getState().weather.recentSearch;
     const apiKey = '73126ac7d135d02ad749e01c19c9dc4e';
-    const link = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`;
+    const link = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`;
     await axios
       .get(link)
       .then((response) => {

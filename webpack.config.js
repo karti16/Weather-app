@@ -37,6 +37,7 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
   },
+
   resolve: {
     extensions: ['.mjs', '.js', '.jsx', '.json'],
   },

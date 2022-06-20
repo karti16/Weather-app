@@ -11,7 +11,7 @@ const initialState = {
   city: 'avadi',
   cityData: [],
   error: '',
-  recentSearch: ['avadi', 'london', 'chennai', 'new york', 'tokyo'],
+  recentSearch: ['avadi', 'london', 'new york', ' japan', 'sydney'],
 };
 
 export const weatherReducer = (state = initialState, action) => {
